@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var db = mongoose.createConnection('mongodb://ds041157.mongolab.com:41157/neurl');
+var db = mongoose.createConnection('localhost', 'test');
 
 var schema = mongoose.Schema({ _id: { type: 'string', default: genUuid}, Url: 'string' });
 var NodifiedUrl = db.model('NodifiedUrl', schema);
