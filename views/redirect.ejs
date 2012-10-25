@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= title %></title>
+		<meta http-equiv="refresh" content="6;URL='<%= url %>'">
+	</head>
+	<body>
+		<h1><%= title %></h1>
+		<p><span id="timer">5</span>...</p>
+		<p>In just a moment you will be redirected to <a href="<%= url %>"><%= url %></a></p>
+		<script type="text/javascript">
+			var countdownVal = 5;
+			var tmr = setInterval(countdown, 1000);
+
+			function countdown() {
+				document.getElementById('timer').innerText = --countdownVal;
+
+				if (countdownVal == 0) clearInterval(tmr);
+			}
+		</script>
+	</body>
+</html>

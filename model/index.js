@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var db = mongoose.createConnection('localhost', 'test');
 
-var schema = mongoose.Schema({ _id: { type: 'string', default: genUuid()}, Url: 'string' });
+var schema = mongoose.Schema({ _id: { type: 'string', default: genUuid}, Url: 'string' });
 var NodifiedUrl = db.model('NodifiedUrl', schema);
 
 
@@ -25,7 +25,7 @@ MongoRepository.prototype.get = function(uuid, callback) {
 
 
 function genUuid() {
-
+	console.log('call to \'genUuid\'');
 	var characterStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"; // len = 24 + 24 + 10 = 58
 	var characters = characterStr.split('');
 	var uuid = "";

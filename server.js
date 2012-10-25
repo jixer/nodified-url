@@ -28,6 +28,7 @@ app.configure('development', function(){
 
 app.get('/:uuid', routes.find);
 app.post('/', routes.create);
+app.get('/', routes.request);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
