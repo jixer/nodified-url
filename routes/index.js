@@ -37,3 +37,26 @@ exports.create = function(req, res) {
 exports.request = function(req, res) {
 	res.render('request', { title: 'Create URL' });
 };
+
+exports.getsearch = function(req, res) {
+	res.render('search', { title: 'Search URLs' });
+};
+
+exports.postsearch = function(req, res) {
+	var searchPhrase = req.body.query;
+	repo.search(searchPhrase, function(results) {
+		console.log(JSON.stringify(results));
+		if (req.get('Content-Type') == 'application/json') {
+			res.send(JSON.stringify(results));
+		}
+		else {
+			res.render('search', {title: 'Search URLs', results: results});
+		}		
+	});	
+};
+
+exports.delete = function(req, res) {
+	repo.delete(function() {
+		res.send("Successfully deleted");
+	});
+};

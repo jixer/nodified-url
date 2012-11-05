@@ -16,16 +16,32 @@ MongoRepository.prototype.create = function(url, callback) {
 
 
 MongoRepository.prototype.get = function(uuid, callback) {
-	console.log(uuid);
 	NodifiedUrl.findById(uuid, function(err, nurl) {
 		if (err) throw err;
 		callback(nurl);
 	});
 };
 
+MongoRepository.prototype.search = function(searchPhrase, callback) {
+	var query = NodifiedUrl.find({}).limit(10).where('Url', /^.+$/).where('Url', new RegExp("^.*" + searchPhrase + ".*$"));
+	query.exec(function(err, queryResult) {
+		if (err) throw err;
+		callback(queryResult);
+	});
+};
+
+MongoRepository.prototype.delete = function(uuid, callback) {
+	var item = NodifiedUrl.findById(uuid, function(err, nurl) {
+		if (err) throw err;
+		item.remove(function(err, result) {
+			if (err) throw err;
+			callback();
+		});
+	});
+};
+
 
 function genUuid() {
-	console.log('call to \'genUuid\'');
 	var characterStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"; // len = 24 + 24 + 10 = 58
 	var characters = characterStr.split('');
 	var uuid = "";
