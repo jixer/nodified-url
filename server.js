@@ -7,7 +7,7 @@ var express = require('express')
   , http = require('http')
   , path = require('path');
 
-  process.env.ROOTURL = 'http://localhost:3000/'
+process.env.ROOTURL = 'http://localhost:3000/';
 
 var app = express();
 
