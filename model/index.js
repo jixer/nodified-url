@@ -16,7 +16,7 @@ MongoRepository.prototype.create = function(url, callback) {
 
 MongoRepository.prototype.get = function(uuid, callback) {
 	NodifiedUrl.findById(uuid, function(err, nurl) {
-		if (err) throw err;
+		if (err) callback(null, err);
 		callback(nurl);
 	});
 };

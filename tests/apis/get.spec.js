@@ -23,12 +23,11 @@ describe("When retrieving an existing NeURL from the APIs", function() {
     var responseStub = createSpyObj('res', ['send']);
     it("Should return a 200 status code", function() {
         runs(function() {
-            console.log(neurlObj);
             apis.find({ params: { uuid: neurlObj._id} }, responseStub);
         });
         
         waitsFor(function() {
-            return responseStub.send.calls[0] !== null;
+            return responseStub.send.calls[0] !== undefined;
         });
         
         runs(function() {
@@ -42,11 +41,13 @@ describe("When retrieving an existing NeURL from the APIs", function() {
         });
         
         waitsFor(function() {
-            return responseStub.send.calls[1] !== null;
+            return responseStub.send.calls[1] !== undefined;
         });
         
-        runs(function() {
+        runs(function() {   
+            console.log(responseStub.send.calls[1]);
             var retrievedObj = JSON.parse(responseStub.send.calls[1].args[1]);
+            console.log(retrievedObj);
             expect(retrievedObj).toEqual(neurlObj);
         });
     });    
@@ -61,7 +62,7 @@ describe("When retrieving a non-existent NeURL from the APIs", function() {
         });
         
         waitsFor(function() {
-            return responseStub2.send.calls[0] !== null;
+            return responseStub2.send.calls[0] !== undefined;
         });
         
         runs(function() {
@@ -75,11 +76,12 @@ describe("When retrieving a non-existent NeURL from the APIs", function() {
         });
         
         waitsFor(function() {
-            return responseStub2.send.calls[0] !== null;
+            return responseStub2.send.calls[1] !== undefined;
         });
         
         runs(function() {
-            expect(responseStub2.send.calls[0].args[1]).toEqual("NeURL with ID 'IDoNotExist' does not exist");
+            console.log()
+            expect(responseStub2.send.calls[1].args[1]).toEqual("NeURL with ID 'IDoNotExist' does not exist");
         });
     });
 });

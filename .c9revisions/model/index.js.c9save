@@ -2,3 +2,4 @@
 {"contributors":[],"silentsave":false,"ts":1358291196176,"patch":[[{"diffs":[[0,"on('"],[-1,"localhost', 'test"],[1,"mongodb://ds041157.mongolab.com:41157/neurl"],[0,"');\n"]],"start1":68,"start2":68,"length1":25,"length2":51}]],"length":1533,"saved":false}
 {"contributors":[],"silentsave":false,"ts":1358291675027,"patch":[[{"diffs":[[0,"ngodb://"],[1,"neurl:Test123!@"],[0,"ds041157"]],"start1":74,"start2":74,"length1":16,"length2":31}]],"length":1548,"saved":false}
 {"contributors":[],"silentsave":false,"ts":1358294430941,"patch":[[{"diffs":[[0,") {\n"],[-1,"\t\tconsole.log(err);\n"],[0,"\t\tca"]],"start1":443,"start2":443,"length1":28,"length2":8}]],"length":1528,"saved":false}
+{"contributors":[],"silentsave":false,"ts":1358375485283,"patch":[[{"diffs":[[0,"\n\t\tif (err) "],[-1,"throw"],[1,"callback(null,"],[0," err"],[1,")"],[0,";\n\t\tcallback"]],"start1":588,"start2":588,"length1":33,"length2":43}]],"length":1538,"saved":false}
