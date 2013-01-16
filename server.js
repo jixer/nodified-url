@@ -7,11 +7,9 @@ var express = require('express')
   , http = require('http')
   , path = require('path');
 
-process.env.ROOTURL = 'http://localhost:3000/';
-
 var app = express();
 
-app.configure(function(){
+app.configure(function() {
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');

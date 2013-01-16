@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var db = mongoose.createConnection('localhost', 'test');
+var db = mongoose.createConnection('mongodb://neurl:Test123!@ds041157.mongolab.com:41157/neurl');
 
 var schema = mongoose.Schema({ _id: { type: 'string', default: genUuid}, Url: 'string' });
 var NodifiedUrl = db.model('NodifiedUrl', schema);
@@ -9,7 +9,6 @@ var MongoRepository = function() {};
 MongoRepository.prototype.create = function(url, callback) {
 	var nurl = new NodifiedUrl({ Url: url });
 	nurl.save(function(err) {
-		console.log(err);
 		callback(nurl, err);
 	});
 };
