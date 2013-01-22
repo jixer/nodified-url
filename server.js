@@ -4,10 +4,11 @@
 
 var express = require('express')
   , routes = require('./routes')
+  , apiroutes = require("./routes/api")
   , http = require('http')
   , path = require('path');
 
-var app = express();
+var app = module.exports = express();
 
 app.configure(function() {
   app.set('port', process.env.PORT || 3000);
@@ -27,6 +28,7 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
+app.post('/apis/', apiroutes.create);
 
 app.post('/', routes.create);
 app.get('/', routes.request);
@@ -35,6 +37,6 @@ app.get('/delete/:uuid', routes.delete);
 app.post('/search', routes.postsearch);
 app.get('/:uuid', routes.find);
 
-http.createServer(app).listen(app.get('port'), function(){
+/*http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
-});
+});*/
