@@ -3,8 +3,8 @@
  */
 
 var express = require('express')
-  , routes = require('./routes')
-  , apiroutes = require("./routes/api")
+  , routes = require('./SRC/routes')
+  , apiroutes = require("./SRC/routes/api")
   , http = require('http')
   , path = require('path');
 
@@ -29,6 +29,7 @@ app.configure('development', function(){
 });
 
 app.post('/apis/', apiroutes.create);
+app.get('/apis/:uuid', apiroutes.find);
 
 app.post('/', routes.create);
 app.get('/', routes.request);
@@ -37,6 +38,6 @@ app.get('/delete/:uuid', routes.delete);
 app.post('/search', routes.postsearch);
 app.get('/:uuid', routes.find);
 
-/*http.createServer(app).listen(app.get('port'), function(){
+http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
-});*/
+});
