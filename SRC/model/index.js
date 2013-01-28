@@ -24,8 +24,8 @@ MongoRepository.prototype.get = function(uuid, callback) {
 MongoRepository.prototype.search = function(searchPhrase, callback) {
 	var query = NodifiedUrl.find({}).limit(10).where('Url', /^.+$/).where('Url', new RegExp("^.*" + searchPhrase + ".*$"));
 	query.exec(function(err, queryResult) {
-		if (err) throw err;
-		callback(queryResult);
+		if (err) callback(err);
+		callback(null, queryResult);
 	});
 };
 

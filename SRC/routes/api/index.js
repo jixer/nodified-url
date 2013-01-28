@@ -35,3 +35,21 @@ exports.create = function(req, res) {
         });
     }
 };
+
+// GET /apis/search/:search
+exports.search = function (req, res) {
+    var searchPhrase = req.params.search;
+    console.log(searchPhrase);
+    repo.search(searchPhrase, function (err, queryResponse) {
+        if (err)
+            res.send(500, "Error occurred searching for NeURLs: " + err);
+        else if (queryResponse === undefined || queryResponse === null
+                || queryResponse.length === null || queryResponse.length == 0) {
+            res.send(404, "No NeURLs found for the following search phrase: " + searchPhrase);
+        }
+        else {
+            res.set('Content-Type', 'application/json');
+            res.send(200, JSON.stringify(queryResponse));
+        }
+    });
+};

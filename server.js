@@ -30,6 +30,7 @@ app.configure('development', function(){
 
 app.post('/apis/', apiroutes.create);
 app.get('/apis/:uuid', apiroutes.find);
+app.get('/apis/search/:search', apiroutes.search)
 
 app.post('/', routes.create);
 app.get('/', routes.request);
