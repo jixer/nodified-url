@@ -1,6 +1,22 @@
 var model = require('../model');
 var repo = new model.MongoRepository();
 
+exports.redirect = function (req, res) {
+    var uuid = req.params.uuid;
+    repo.get(uuid, function (neurl, err) {
+        if (err) {
+            res.send(500, "Error occurred: " + err);
+        }
+        else if (!neurl) {
+            res.send(404, "NeURL with ID '" + uuid + "' was not found");
+        }
+        else {
+            res.redirect(neurl.Url);
+        }
+    });
+};
+
+/*
 // GET /
 exports.index = function(req, res){
   res.render('index', { title: 'Express' });
@@ -60,3 +76,4 @@ exports.delete = function(req, res) {
 		res.send("Successfully deleted");
 	});
 };
+*/
