@@ -53,3 +53,27 @@ exports.search = function (req, res) {
         }
     });
 };
+
+// PATCH /apis/
+exports.update = function (req, res) {
+    var neurl = req.body;
+    if (neurl === null || neurl.Url === undefined || neurl.Url === null) {
+        res.send(400, "Must specify a NeURL to update!");
+    }
+    else if (neurl._id == undefined) {
+        res.send(400, "Must specify a NeURL ID to update!");
+    }
+    else {
+        repo.update(neurl, function (err, updatedObj) {
+            if (err) {
+                res.send(500, "Error occurred: " + err);
+            }
+            else if (updatedObj === null) {
+                res.send(404, "Object with id '" + neurl._id + "' could not be found in db");
+            }
+            else {
+                res.send(205, JSON.stringify(updatedObj));
+            }
+        });
+    }
+};

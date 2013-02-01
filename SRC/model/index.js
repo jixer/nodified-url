@@ -29,14 +29,8 @@ MongoRepository.prototype.search = function(searchPhrase, callback) {
 	});
 };
 
-MongoRepository.prototype.delete = function(uuid, callback) {
-	var item = NodifiedUrl.findById(uuid, function(err, nurl) {
-		if (err) throw err;
-		item.remove(function(err, result) {
-			if (err) throw err;
-			callback();
-		});
-	});
+MongoRepository.prototype.update = function(neurl, callback) {
+    NodifiedUrl.findByIdAndUpdate(neurl._id, {$set: { Url: neurl.Url }}, callback);
 };
 
 
