@@ -1,8 +1,111 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #f3f7f8;
 }
 
 a {
   color: #00B7FF;
+}
+
+/* Globals */
+.main-container {
+    width:  900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+label {
+    color: #0e385e;
+    font-weight: bold;
+    display: block;
+    float: left;
+    line-height: 29px;
+    vertical-align: middle;
+}
+
+input.t {
+    border: 1px solid #0e385e;
+    height: 20px;
+}
+
+input.b {
+    border: 2px solid #0e385e;
+    background-color: #1878a8;
+    color: #fff;
+    font-weight: bold;
+    padding:  5px 15px 5px 15px;
+}
+
+
+/* Header */
+#header {
+    background-image: url(/public/img/header_bg.png);
+    background-position: center;
+    height: 240px;
+}
+
+#header .search {
+    background-image: url(/public/img/top_banner.png);
+    height: 71px;
+}
+
+#header .main-container {
+    margin-top: 30px;
+    vertical-align: top;
+    color: #fff;
+}
+
+#header .main-container img.logo {
+    float: left;
+}
+
+#header .main-container .description {
+    float: left;
+    margin-left: 15px;
+    margin-top:  -4px;
+}
+
+#header .main-container .description .title {
+    font-size: 24px;
+}
+
+#header .main-container .description .text {
+    font-size: 14px;
+}
+
+#header .main-container ol.nav {
+    list-style-type: none;
+    margin: 0;
+    float: right;
+    display: block;
+    font-size: 18px;  
+    margin-top:  10px; 
+}
+
+#header .main-container ol.nav li {
+    
+}
+
+
+/* Forms */
+.form {
+    
+}
+
+.form.create {
+    width:  500px;
+}
+
+.form.create label {
+    width: 60px;
+}
+
+.form.create #url {
+    width:  430px;
+    float: right;
+}
+
+.form.create #create {
+    margin-top: 5px;
+    float: right;
 }
