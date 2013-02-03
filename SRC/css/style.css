@@ -36,6 +36,11 @@ input.b {
     padding:  5px 15px 5px 15px;
 }
 
+.clear-float {
+    clear: both;
+    height: 1px;
+}
+
 
 /* Header */
 #header {

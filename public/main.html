@@ -31,10 +31,18 @@
                 </p>
                 <div class="create form">
                     <label for="url">URL:</label>
-                    <input type="text" id="url" class="t" />
-                    <input type="submit" id="create" value="Submit" class="b" />
+                    <input type="text" id="url" class="t" data-bind="value: formData.Url" />
+                    <input type="submit" id="create" value="Submit" class="b" data-bind="click: submitUrl" />
+                    <div class="clear-float"> </div>
                 </div>
+                <div id="response">
+                    <span data-bind="text: status"></span>
+                </div>
+                
             </div>
         </section>
+        <script type='text/javascript' src='/js/knockout.js'></script>
+        <script type="text/javascript" src="/js/jquery-1.8.2.min.js"></script>
+        <script type="text/javascript" src="/js/create.js"></script>
     </body>
 </html>
