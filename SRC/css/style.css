@@ -39,13 +39,13 @@ input.b {
 
 /* Header */
 #header {
-    background-image: url(/public/img/header_bg.png);
+    background-image: url(/img/header_bg.png);
     background-position: center;
     height: 240px;
 }
 
 #header .search {
-    background-image: url(/public/img/top_banner.png);
+    background-image: url(/img/top_banner.png);
     height: 71px;
 }
 
