@@ -41,6 +41,15 @@ input.b {
     height: 1px;
 }
 
+table td {
+    padding: 4px 15px 4px 15px;
+    border: 1px solid #000;
+    margin: 0;
+}
+table thead td {
+    font-weight: bold;
+}
+
 
 /* Header */
 #header {
@@ -87,10 +96,37 @@ input.b {
     margin-top:  10px; 
 }
 
+#header .main-container ol.nav li {
+    float: left;
+    display: block;
+    margin-left: 25px;
+}
+
 #header .main-container ol.nav li a {
     color: #fff;
     font-style: normal;
     text-decoration: none;
+}
+
+/* Search */
+.search-box {
+    float: right;
+    margin-top: 20px;
+}
+
+.search-box #search-phrase {
+    background-color: #0775b9;
+    border: none;
+    height: 22px;
+    width:  300px;
+}
+
+.search-box #submit-search {
+    border: none;
+    background-image: url(/img/search.png);
+    background-color: rgba(0,0,0,0);
+    height: 23px;
+    width:  23px;
 }
 
 

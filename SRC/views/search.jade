@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    h2="Search Results"
+    p
+        span You searched for '
+        span#searched-phrase=searchPhrase
+        span '
+    table.search-results
+        thead
+            tr
+                td="Original URL"
+                td="Neu URL ID"
+
+        tbody(data-bind="foreach: urls")
+            td(data-bind="text: Url")
+            td(data-bind="text: _id")
+
+
+block scripts
+    script(type="text/javascript", src="/js/search.js")
