@@ -27,7 +27,7 @@ describe("APIs", function () {
                     .post('/apis/')
                     .send({ Url: 'http://google.com/' })
                     .end(function (err, resp) {
-                        resp.headers.location.should.match(/^http:\/\/neurl.com\/.{6}$/);
+                        resp.headers.location.should.match(/^http:\/\/neurl.us\/.{6}$/);
                         done();
                     })
             })
@@ -37,7 +37,7 @@ describe("APIs", function () {
                     .post('/apis/')
                     .send({ Url: 'http://google.com/' })
                     .end(function (err, resp) {
-                        resp.text.should.match(/^http:\/\/neurl.com\/.{6}$/);
+                        resp.text.should.match(/^http:\/\/neurl.us\/.{6}$/);
                         done();
                     });
             });

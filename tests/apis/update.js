@@ -18,10 +18,17 @@ var
     , request = require("supertest")
     , should = require("should");
 
+var original =
+{
+    "Url": "http://google.com/",
+    "_id": "EG2pny",
+    "__v": 0
+};
+
 var validNeURL =
 {
-    "Url": "http://google.com/?q=1234567890",
-    "_id": "vHrJGD"
+    "Url": "http://google.com/",
+    "_id": "EG2pny"
 };
 
 var missingId =

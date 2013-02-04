@@ -31,8 +31,8 @@ exports.create = function (req, res) {
             if (err)
                 res.send(500, "Error occurred creating NeURL: " + err);
             else {
-                res.set('Location', 'http://neurl.com/' + neurlObj._id);
-                res.send(201, "http://neurl.com/" + neurlObj._id);
+                res.set('Location', 'http://neurl.us/' + neurlObj._id);
+                res.send(201, "http://neurl.us/" + neurlObj._id);
             }
         });
     }
