@@ -16,64 +16,14 @@ exports.redirect = function (req, res) {
     });
 };
 
-/*
-// GET /
-exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+exports.search = function (req, res) {
+    if (req.params.searchphrase) {
+        res.render('search', { searchPhrase: req.params.searchphrase });
+    }
+    else if (req.body.q) {
+        res.render('search', { searchPhrase: req.body.q });
+    }
+    else {
+        res.send(400, "Invalid search");
+    }
 };
-
-//GET /:uuid
-exports.find = function(req, res) {
-	var uuid = req.params.uuid;
-	repo.get(uuid, function(nurl) {
-		console.log('Nurl: ' + JSON.stringify(nurl));
-		if (nurl && nurl.Url) {
-			res.render('redirect', { title: "Find URL", url: nurl.Url });
-		}
-		else {
-			res.send('not found');
-		}
-	});
-};
-
-// POST /
-exports.create = function(req, res) {
-	var url = req.body.url;
-	repo.create(url, function(nurl, err) {
-		if (!err) {
-			res.render('created', { title: 'Created URL', oldUrl: nurl.Url, newUrl: 'http://localhost:3000/' + nurl._id });
-		}
-		else {
-			res.send('Err: ' + err);
-		}
-	});
-};
-
-// GET /
-exports.request = function(req, res) {
-	res.render('request', { title: 'Create URL' });
-};
-
-exports.getsearch = function(req, res) {
-	res.render('search', { title: 'Search URLs' });
-};
-
-exports.postsearch = function(req, res) {
-	var searchPhrase = req.body.query;
-	repo.search(searchPhrase, function(results) {
-		console.log(JSON.stringify(results));
-		if (req.get('Content-Type') == 'application/json') {
-			res.send(JSON.stringify(results));
-		}
-		else {
-			res.render('search', {title: 'Search URLs', results: results});
-		}		
-	});	
-};
-
-exports.delete = function(req, res) {
-	repo.delete(function() {
-		res.send("Successfully deleted");
-	});
-};
-*/

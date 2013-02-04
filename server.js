@@ -44,29 +44,9 @@ app.get('/', function (req, res) {
     res.render('index');
 });
 
-app.get('/search/:searchphrase', function (req, res) {
-    res.render('search', { searchPhrase: req.params.searchphrase });
-    /*
-    if (req.params.searchphrase) {
-        
-    }
-    else if (req.body.q) {
-        
-    }
-    else {
-        res.send(400, "Invalid search");
-    }
-    */
-});
-
-app.post('/search', function (req, res) {
-    res.render('search', { searchPhrase: req.body.q });
-});
-
-app.get('/search/:searchphrase', function (req, res) {
-    console.log(req.params.searchphrase);
-    res.render('search', { searchPhrase: req.params.searchphrase });
-});
+// search routes
+app.get('/search/:searchphrase', routes.search);
+app.post('/search', routes.search);
 
 
 http.createServer(app).listen(app.get('port'), function(){

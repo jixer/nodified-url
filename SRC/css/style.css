@@ -8,6 +8,10 @@ a {
 }
 
 /* Globals */
+body {
+    margin: 0;
+}
+
 .main-container {
     width:  900px;
     margin-left: auto;
