@@ -12,7 +12,7 @@ var app = module.exports = express();
 
 app.configure(function () {
     app.set('port', process.env.PORT || 3000);
-    app.set('views', __dirname + '/views');
+    app.set('views', __dirname + '/SRC/views');
     app.set('view engine', 'jade');
     app.use(express.favicon());
     app.use(express.logger('dev'));
@@ -41,7 +41,7 @@ app.get("/:uuid", routes.redirect);
 
 // override default
 app.get('/', function (req, res) {
-    res.redirect('/public/main.html');
+    res.render('index');
 });
 
 

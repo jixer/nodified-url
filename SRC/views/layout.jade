@@ -1,0 +1,21 @@
+html
+    head
+        title= "Neudesic - NeURL"
+        link(rel="stylesheet", type="text/css", href="/css/style.css")
+    body
+        #header
+            .search
+            .main-container
+                img.logo(src="/img/logo.png")      
+                .description                    
+                    span.title="NeURL"
+                    br
+                    span.text="The URL Shortener"
+                ol.nav
+                    li: a(href="/")="HOME"
+        #content
+            .main-container
+                block content
+        script(type='text/javascript', src='/js/knockout.js')
+        script(type="text/javascript", src="/js/jquery-1.8.2.min.js")
+        block scripts

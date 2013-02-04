@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    h2="About NeURL"
+    p="This site allows you to create a Neudesic shortened version of any URL.  To use this tool, either search for a URL using the search box at the top right or enter the required information below to create a Neu NeURL."
+    .create.form
+        label(for="url")="URL:"
+        input#url.url(type="text", data-bind="value: formData.Url")
+        input#create.b(type="submit", value="Submit", data-bind="click: submitUrl")
+        .clear-float
+    #response
+        span(data-bind="text: status")
+
+block scripts
+    script(type="text/javascript", src="/js/create.js")

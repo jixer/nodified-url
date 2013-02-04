@@ -87,8 +87,10 @@ input.b {
     margin-top:  10px; 
 }
 
-#header .main-container ol.nav li {
-    
+#header .main-container ol.nav li a {
+    color: #fff;
+    font-style: normal;
+    text-decoration: none;
 }
 
 
