@@ -123,6 +123,9 @@ table thead td {
     border: none;
     height: 22px;
     width:  300px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #fff;
 }
 
 .search-box #submit-search {
@@ -131,6 +134,7 @@ table thead td {
     background-color: rgba(0,0,0,0);
     height: 23px;
     width:  23px;
+    cursor: pointer;
 }
 
 
